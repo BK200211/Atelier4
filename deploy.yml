@@ -1,0 +1,28 @@
+name: Create and Populate Branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-and-populate-branch:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Create Branch
+      run: |
+        git checkout -b save
+        git push origin save
+
+    - name: Copy File to New Branch
+      run: |
+        cp -r wwwroot
+        git add wwwroot
+        git commit -m "Copier le fichier vers la nouvelle branche"
+        git push origin save
+
+
