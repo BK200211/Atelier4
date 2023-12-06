@@ -51,8 +51,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-sauvegarde@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./wwwroot
-        branch: gh-pages
+        branch: sauvegarde
